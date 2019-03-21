@@ -50,38 +50,12 @@ module.exports = function() {
         moment: 'moment',
         jquery: 'jQuery'
       },
-      '@wordpress/hooks',
-      '@wordpress/i18n',
-      '@wordpress/url',
-      '@wordpress/api-fetch',
-      '@wordpress/autop',
-      '@wordpress/blob',
-      '@wordpress/block-serialization-default-parser',
-      '@wordpress/escape-html',
-      '@wordpress/element',
-      '@wordpress/is-shallow-equal',
-      '@wordpress/compose',
-      '@wordpress/redux-routine',
-      '@wordpress/dom',
-      '@wordpress/html-entities',
-      '@wordpress/shortcode',
-      '@wordpress/blocks',
-      '@wordpress/keycodes',
-      '@wordpress/rich-text',
-      '@wordpress/components',
-      '@wordpress/core-data',
-      '@wordpress/date',
-      '@wordpress/notices',
-      '@wordpress/nux',
-      '@wordpress/token-list',
-      '@wordpress/viewport',
-      '@wordpress/wordcount',
-      '@wordpress/block-library',
-      '@wordpress/plugins',
-      '@wordpress/format-library',
-      '@wordpress/a11y',
-      '@wordpress/data',
-      '@wordpress/edit-post'
+      function(context, request, callback) {
+        if (/^@wordpress/.test(request)) {
+          return callback(null, 'commonjs ' + request);
+        }
+        callback();
+      }
     ],
     devServer: {
       host: '0.0.0.0',
