@@ -7,7 +7,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --color --progress",
-    "build": "cross-env NODE_ENV=development webpack -p"
+    "build": "cross-env NODE_ENV=production webpack -p"
   },
   "repository": {
     "type": "git",

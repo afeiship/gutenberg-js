@@ -41,7 +41,6 @@ import * as editPost from '@wordpress/edit-post';
 
 
 // Style
-import './styles/block-library.scss';
 import './styles/style.scss';
 
 const settings = {
