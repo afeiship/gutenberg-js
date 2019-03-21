@@ -82,6 +82,13 @@ module.exports = function() {
       '@wordpress/a11y',
       '@wordpress/data',
       '@wordpress/edit-post'
-    ]
+    ],
+    devServer: {
+      host: '0.0.0.0',
+      noInfo: false,
+      contentBase: relativeDir.dist,
+      compress: false,
+      port: 9000
+    }
   };
 };
