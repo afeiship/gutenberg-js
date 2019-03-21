@@ -1,5 +1,5 @@
 import webpack from 'webpack';
-import { resolve } from 'path';
+import { resolve, join } from 'path';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
@@ -14,7 +14,12 @@ export default {
     path: resolve(__dirname, 'dist')
   },
   plugins: [
-    new CleanWebpackPlugin(['dist/*.js',]),
+    new CleanWebpackPlugin(['dist/*.js']),
     new HtmlWebpackPlugin({ template: './public/index.ejs' })
-  ]
+  ],
+  devServer: {
+    contentBase: resolve(__dirname, 'dist'),
+    compress: true,
+    port: 9000
+  }
 };

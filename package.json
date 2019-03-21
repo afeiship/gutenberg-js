@@ -6,7 +6,7 @@
   "scripts": {
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "dev": "cross-env NODE_ENV=development webpack --watch"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -86,7 +86,8 @@
     "vuepress": "^0.14.10",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-middleware": "^3.6.0"
+    "webpack-dev-middleware": "^3.6.0",
+    "webpack-dev-server": "^3.2.1"
   },
   "homepage": "https://github.com/afeiship/gutenberg-js#readme"
 }
