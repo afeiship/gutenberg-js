@@ -18,8 +18,11 @@ export default {
     new HtmlWebpackPlugin({ template: './public/index.ejs' })
   ],
   devServer: {
+    host: '0.0.0.0',
+    noInfo: false,
     contentBase: resolve(__dirname, 'dist'),
     compress: true,
     port: 9000
   }
 };
+
