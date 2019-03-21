@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const { NODE_ENV } = process.env;
-const extractCSS = new ExtractTextPlugin('./css/style.css');
+const extractCSS = new ExtractTextPlugin('./css/gutenberg.css');
 const relativeDir = {
   dist: resolve(__dirname, 'dist')
 };
@@ -14,7 +14,7 @@ module.exports = function() {
   return {
     mode: NODE_ENV,
     entry: {
-      'gutenberg-js': ['./src/index.js']
+      gutenberg: ['./src/index.js']
     },
     output: {
       path: relativeDir.dist
@@ -27,7 +27,7 @@ module.exports = function() {
           loader: 'babel-loader'
         },
         {
-          test: /style\.s?css$/,
+          test: /\.(scss|sass)$/i,
           use: extractCSS.extract({
             fallback: 'style-loader', // creates style nodes from JS strings
             use: [
@@ -40,21 +40,48 @@ module.exports = function() {
     },
     plugins: [
       extractCSS,
-      new CleanWebpackPlugin(['dist/*.js']),
+      new CleanWebpackPlugin(['dist/*']),
       new HtmlWebpackPlugin({ template: './public/index.ejs' })
     ],
-    externals: {
-      react: 'React',
-      'react-dom': 'ReactDOM',
-      moment: 'moment',
-      jquery: 'jQuery'
-    },
-    devServer: {
-      host: '0.0.0.0',
-      noInfo: false,
-      contentBase: relativeDir.dist,
-      compress: false,
-      port: 9000
-    }
+    externals: [
+      {
+        react: 'React',
+        'react-dom': 'ReactDOM',
+        moment: 'moment',
+        jquery: 'jQuery'
+      },
+      '@wordpress/hooks',
+      '@wordpress/i18n',
+      '@wordpress/url',
+      '@wordpress/api-fetch',
+      '@wordpress/autop',
+      '@wordpress/blob',
+      '@wordpress/block-serialization-default-parser',
+      '@wordpress/escape-html',
+      '@wordpress/element',
+      '@wordpress/is-shallow-equal',
+      '@wordpress/compose',
+      '@wordpress/redux-routine',
+      '@wordpress/dom',
+      '@wordpress/html-entities',
+      '@wordpress/shortcode',
+      '@wordpress/blocks',
+      '@wordpress/keycodes',
+      '@wordpress/rich-text',
+      '@wordpress/components',
+      '@wordpress/core-data',
+      '@wordpress/date',
+      '@wordpress/notices',
+      '@wordpress/nux',
+      '@wordpress/token-list',
+      '@wordpress/viewport',
+      '@wordpress/wordcount',
+      '@wordpress/block-library',
+      '@wordpress/plugins',
+      '@wordpress/format-library',
+      '@wordpress/a11y',
+      '@wordpress/data',
+      '@wordpress/edit-post'
+    ]
   };
 };
