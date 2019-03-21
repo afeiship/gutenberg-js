@@ -1,8 +1,8 @@
-import { page, pageType, getMedias, themes } from './fake-data.js';
+import { page, pageType, getMedias, themes } from './fake-data';
 
 const medias = getMedias();
 
-const apiFetch = (options) => {
+export default (options) => {
   let res = {};
   let item = {};
 
@@ -69,5 +69,3 @@ const apiFetch = (options) => {
     resolve(res);
   });
 };
-
-export default apiFetch;

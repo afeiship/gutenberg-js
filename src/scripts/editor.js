@@ -12,28 +12,28 @@ const oldEditorFunctions = {
 
     window.tinymce.init(init);
 
-    if (! window.wpActiveEditor) {
+    if (!window.wpActiveEditor) {
       window.wpActiveEditor = id;
     }
   },
 
   autop: () => {},
 
-  getContent: id => {
+  getContent: (id) => {
     const editor = window.tinymce.get(id);
 
-    if (editor && ! editor.isHidden()) {
+    if (editor && !editor.isHidden()) {
       editor.save();
     }
 
     return jQuery('#' + id).val();
   },
 
-  remove: id => {
+  remove: (id) => {
     const mceInstance = window.tinymce.get(id);
 
     if (mceInstance) {
-      if (! mceInstance.isHidden()) {
+      if (!mceInstance.isHidden()) {
         mceInstance.save();
       }
 
@@ -52,22 +52,19 @@ const oldEditorFunctions = {
       resize: 'vertical',
       skin: 'lightgray',
       theme: 'modern',
-      toolbar1: 'bold,italic,bullist,numlist,link',
+      toolbar1: 'bold,italic,bullist,numlist,link'
     },
     quicktags: {
-      buttons: 'strong,em,link,ul,ol,li,code',
-    },
-  }),
+      buttons: 'strong,em,link,ul,ol,li,code'
+    }
+  })
 };
 
 const editor = {
   ...oEditor,
-  ...oldEditorFunctions,
+  ...oldEditorFunctions
 };
 
 const oldEditor = editor;
 
-export {
-  editor,
-  oldEditor,
-};
+export { editor, oldEditor };

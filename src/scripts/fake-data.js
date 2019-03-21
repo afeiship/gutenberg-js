@@ -1,5 +1,4 @@
 const date = new Date().toISOString();
-// const tmpl1 = require('./template1.html');
 
 export const pageType = {
   id: 1,
@@ -13,7 +12,6 @@ export const pageType = {
 export const page = {
   id: 1,
   content: {
-    // raw: '<!-- wp:verse --> <pre class="wp-block-verse"/> <!-- /wp:verse -->',
     raw: '',
     rendered: ''
   },
