@@ -17,6 +17,7 @@ module.exports = function() {
       gutenberg: ['./src/index.js']
     },
     output: {
+      libraryTarget: 'umd',
       path: relativeDir.dist
     },
     module: {
