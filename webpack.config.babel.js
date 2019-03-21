@@ -5,8 +5,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const { NODE_ENV } = process.env;
 
-console.log(resolve(__dirname, 'dist'));
-
 export default {
   mode: NODE_ENV,
   entry: {
@@ -16,8 +14,7 @@ export default {
     path: resolve(__dirname, 'dist')
   },
   plugins: [
-    new webpack.ProgressPlugin(),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin(['dist/*.js',]),
     new HtmlWebpackPlugin({ template: './public/index.ejs' })
   ]
 };
