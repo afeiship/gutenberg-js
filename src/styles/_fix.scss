@@ -6,9 +6,53 @@
   max-width: 1024px;
 }
 
+// auto layout:
+
 @media (min-width: 782px) {
-  .gutenberg__editor .edit-post-layout .edit-post-layout__content {
-    margin-top: 32px;
-    overflow-y: auto;
+  .gutenberg__editor {
+    width: 80%;
+    margin: 40px auto;
+    border: 5px solid #f60;
+
+    &,
+    .components-navigate-regions {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .edit-post-layout {
+      .edit-post-header,
+      .edit-post-sidebar,
+      .edit-post-layout__content {
+        position: absolute;
+      }
+      .edit-post-header {
+        left: 0;
+        top: 0;
+        right: 0;
+      }
+
+      .edit-post-layout__content {
+        margin: 0;
+        top: 56px;
+        border: 1px solid #080;
+        left: 0;
+        right: 0;
+        overflow-y: auto;
+      }
+      .edit-post-sidebar {
+        width: 280px;
+        top: 56px;
+      }
+
+      &.is-sidebar-opened {
+        .edit-post-layout__content {
+          right: 280px;
+        }
+      }
+    }
   }
 }

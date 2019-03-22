@@ -6,7 +6,6 @@ import './scripts/api-fetch';
 import './scripts/data';
 
 import '@wordpress/hooks';
-import '@wordpress/i18n';
 import '@wordpress/url';
 import '@wordpress/api-fetch';
 import '@wordpress/autop';
@@ -35,6 +34,7 @@ import '@wordpress/plugins';
 import '@wordpress/format-library';
 import '@wordpress/a11y';
 
+import * as i18n from '@wordpress/i18n';
 import * as data from '@wordpress/data';
 import * as editPost from '@wordpress/edit-post';
 import { removeFilter } from '@wordpress/hooks';
@@ -67,6 +67,10 @@ class App extends React.Component {
 
     localStorage.removeItem('g-editor-page');
     data.dispatch('core/nux').disableTips();
+
+    console.log(
+      i18n.__('hello fei')
+    );
 
     // fix: remove upload image error:
     removeFilter(
