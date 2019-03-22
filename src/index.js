@@ -65,11 +65,9 @@ class App extends React.Component {
 
     localStorage.removeItem('g-editor-page');
     data.dispatch('core/nux').disableTips();
-
-    window._wpLoadGutenbergEditor = new Promise(function(resolve) {
-      resolve(editPost.initializeEditor('editor', 'page', 1, settings, {}));
-    });
+    editPost.initializeEditor('editor', 'page', 1, settings, {});
   }
+
   render() {
     return <div id="editor" className="gutenberg__editor" />;
   }
