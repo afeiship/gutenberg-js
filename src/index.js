@@ -1,6 +1,7 @@
 /**
  * WordPress dependencies
  */
+
 import './scripts/api-fetch';
 import './scripts/data';
 
@@ -36,6 +37,7 @@ import '@wordpress/a11y';
 
 import * as data from '@wordpress/data';
 import * as editPost from '@wordpress/edit-post';
+import { removeFilter } from '@wordpress/hooks';
 
 const { React, ReactDOM } = window;
 
@@ -53,7 +55,7 @@ class App extends React.Component {
       titlePlaceholder: 'Add title',
       bodyPlaceholder: 'Insert your custom block',
       isRTL: false,
-      autosaveInterval: 0,
+      autosaveInterval: 10,
       postLock: {
         isLocked: false
       },
@@ -65,6 +67,14 @@ class App extends React.Component {
 
     localStorage.removeItem('g-editor-page');
     data.dispatch('core/nux').disableTips();
+
+    // fix: remove upload image error:
+    removeFilter(
+      'editor.MediaUpload',
+      'core/edit-post/components/media-upload/replace-media-upload'
+    );
+
+    // init editor:
     editPost.initializeEditor('editor', 'page', 1, settings, {});
   }
 
