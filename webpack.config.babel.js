@@ -10,6 +10,16 @@ const relativeDir = {
   dist: resolve(__dirname, 'dist')
 };
 
+const WP_EXTERNALS =
+  NODE_ENV === 'production'
+    ? function(context, request, callback) {
+        if (/^@wordpress/.test(request)) {
+          return callback(null, 'commonjs ' + request);
+        }
+        callback();
+      }
+    : {};
+
 module.exports = function() {
   return {
     mode: NODE_ENV,
@@ -41,7 +51,7 @@ module.exports = function() {
     },
     plugins: [
       extractCSS,
-      new CleanWebpackPlugin(['dist/*']),
+      new CleanWebpackPlugin('dist/*'),
       new HtmlWebpackPlugin({ template: './public/index.ejs' })
     ],
     externals: [
@@ -51,12 +61,7 @@ module.exports = function() {
         moment: 'moment',
         jquery: 'jQuery'
       },
-      function(context, request, callback) {
-        if (/^@wordpress/.test(request)) {
-          return callback(null, 'commonjs ' + request);
-        }
-        callback();
-      }
+      WP_EXTERNALS
     ],
     devServer: {
       host: '0.0.0.0',

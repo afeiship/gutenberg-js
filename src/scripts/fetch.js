@@ -6,6 +6,8 @@ export default (options) => {
   let res = {};
   let item = {};
 
+  console.log('fetch options:', options);
+
   switch (options.path) {
     case '/wp/v2/types?context=edit':
       res = { page: pageType };

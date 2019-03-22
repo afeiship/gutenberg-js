@@ -4,14 +4,11 @@
       "@babel/preset-env",
       {
         "targets": {
-          "browsers": [
-            "last 2 Chrome versions"
-          ]
+          "browsers": ["last 2 Chrome versions"]
         }
       }
-    ]
+    ],
+    "@babel/preset-react"
   ],
-  "plugins": [
-    "@babel/plugin-transform-runtime"
-  ]
+  "plugins": ["@babel/plugin-transform-runtime"]
 }
