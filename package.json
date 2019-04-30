@@ -63,6 +63,7 @@
     "@wordpress/url": "^2.5.0",
     "@wordpress/viewport": "^2.3.0",
     "@wordpress/wordcount": "^2.2.0",
+    "rake-git": "github:afeiship/rake-git",
     "tinymce": "^5.0.3"
   },
   "devDependencies": {
