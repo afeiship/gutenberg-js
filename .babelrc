@@ -2,6 +2,7 @@
   "presets": [
     [
       "@babel/preset-env",
+
       {
         "targets": {
           "browsers": ["last 2 Chrome versions"]
@@ -12,6 +13,7 @@
   ],
   "plugins": [
     "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-class-properties",
     ["@wordpress/babel-plugin-makepot", { "output": "languages/gutenberg.pot" }]
   ]
 }
