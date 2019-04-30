@@ -38,8 +38,8 @@ import * as i18n from '@wordpress/i18n';
 import * as data from '@wordpress/data';
 import * as editPost from '@wordpress/edit-post';
 import { removeFilter } from '@wordpress/hooks';
-
-const { React, ReactDOM } = window;
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 // Style
 import './styles/style.scss';
