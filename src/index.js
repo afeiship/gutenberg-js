@@ -33,7 +33,10 @@ import '@wordpress/block-library';
 import '@wordpress/plugins';
 import '@wordpress/format-library';
 import '@wordpress/a11y';
-import { AlignmentToolbar } from '@wordpress/block-editor';
+import { Button, ButtonGroup } from '@wordpress/components';
+import { RichText } from '@wordpress/block-editor'
+import VisualEditor from '@wordpress/edit-post/build/components/visual-editor';
+//  /Users/feizheng/finxos/gutenberg-js/node_modules/@wordpress/block-editor/src/components/rich-text
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -41,19 +44,22 @@ import ReactDOM from 'react-dom';
 // Style
 import './styles/style.scss';
 
+// window.editPost = editPost;;
+
 class App extends React.Component {
   state = {
     value: 'left'
   };
 
   _onChange = (inEvent) => {
-    this.setState({ value: inEvent });
+    console.log('inEvent', inEvent);
+    // this.setState({ value: inEvent });
   };
 
   render() {
     return (
       <div className="demo">
-        <AlignmentToolbar value={this.state.value} onChange={this._onChange} />
+        <VisualEditor title="titll" onChange={this._onChange} />
       </div>
     );
   }
