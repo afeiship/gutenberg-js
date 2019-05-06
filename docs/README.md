@@ -10,3 +10,4 @@ npm i -S "@wordpress/a11y" "@wordpress/api-fetch" "@wordpress/autop" "@wordpress
 - core
 - core/editor
 - core/edit-post
+- core/nux
