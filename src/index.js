@@ -34,8 +34,11 @@ import '@wordpress/plugins';
 import '@wordpress/format-library';
 import '@wordpress/a11y';
 import { Button, ButtonGroup } from '@wordpress/components';
-import { RichText } from '@wordpress/block-editor'
+import { RichText } from '@wordpress/block-editor';
 import VisualEditor from '@wordpress/edit-post/build/components/visual-editor';
+import BlockInspectorButton from '@wordpress/edit-post/build/components/visual-editor/block-inspector-button';
+import { PostTitle } from '@wordpress/editor';
+import { WritingFlow, BlockList } from '@wordpress/block-editor';
 //  /Users/feizheng/finxos/gutenberg-js/node_modules/@wordpress/block-editor/src/components/rich-text
 
 import React from 'react';
@@ -59,7 +62,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="demo">
-        <VisualEditor title="titll" onChange={this._onChange} />
+        <BlockList />
       </div>
     );
   }
